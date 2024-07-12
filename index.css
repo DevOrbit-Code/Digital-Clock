@@ -1,0 +1,100 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  overflow: hidden;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(45deg, #514181, #30197d, #17177e);
+  position: relative;
+}
+
+.clock-body {
+  height: 16vh;
+  padding: 10px;
+  background-color: #07346136;
+  color: #3dcaf5;
+  box-shadow: 20px -10px 30px #03030342, -10px 10px 20px #ffffff17;
+  font-size: 15vmin;
+  font-weight: bolder;
+  text-shadow: 0 0 15px #3dcaf528;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  overflow: hidden;
+  z-index: 1;
+  transition: all .3s ease;
+}
+
+.clock-body:hover{
+  font-size: 15.5vmin;
+  text-shadow: 1px -1px 15px #3dcaf548;
+}
+
+
+span {
+  transform: translateY(-1.2vh);
+  text-shadow: none;
+}
+
+body::before {
+  content: "";
+  height: 150px;
+  width: 150px;
+  border-radius: 20px 10px 80px 0px;
+  background: linear-gradient(115deg, #eb25eb, blue);
+  position: absolute;
+  transform: translateX(-240px) translateY(-40px);
+  filter: blur(1px);
+  animation: an 10s cubic-bezier(0.215, 0.61, 0.355, 1) infinite alternate;
+}
+
+body::after {
+  content: "";
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  background: linear-gradient(245deg, #f713ffcc, #1db3d8);
+  filter: blur(5px);
+  position: absolute;
+  transform: translateX(290px) translateY(80px);
+  animation: an 20s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite alternate;
+}
+
+@keyframes an {
+  0% {
+    border-radius: 40px 8px 19px 12px;
+  }
+  25% {
+    border-radius: 10px 10px 30px 20px;
+    filter: blur(10px);
+  }
+  50% {
+    border-radius: 50px 30px 10px 20px;
+    scale: 0.8;
+  }
+  75% {
+    filter: blur(3px);
+    border-radius: 40px 10px 30px 28px;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  body::after {
+    transform: translateX(160px) translateY(70px);
+  }
+  body::before {
+    transform: translateX(-180px) translateY(-60px);
+  }
+  span{
+  transform: translateY(-.7vh);
+  }
+}
